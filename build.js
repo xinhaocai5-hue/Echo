@@ -5,10 +5,12 @@
  * 用法: node build.js
  */
 const fs = require('fs');
+const path = require('path');
 const babel = require('@babel/core');
 
-const SRC_FILE = 'e:\\XM\\Echo\\Echo.src.html';
-const OUT_FILE = 'e:\\XM\\Echo\\Echo.html';
+// 使用相对路径，兼容 Windows / Linux / macOS
+const SRC_FILE = path.join(__dirname, 'Echo.src.html');
+const OUT_FILE = path.join(__dirname, 'Echo.html');
 
 console.log('=== Echo Build Script ===');
 console.log('');
