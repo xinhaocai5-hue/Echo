@@ -78,9 +78,14 @@ newHtml = newHtml.replace('<!-- React & Babel -->', '<!-- React -->');
 // 5. 写入输出文件
 fs.writeFileSync(OUT_FILE, newHtml, 'utf-8');
 
+// 同时生成 index.html 作为 Pages 入口
+const INDEX_FILE = path.join(__dirname, 'index.html');
+fs.writeFileSync(INDEX_FILE, newHtml, 'utf-8');
+
 console.log('');
 console.log('=== 构建结果 ===');
 console.log(`输出文件: ${OUT_FILE}`);
+console.log(`入口文件: ${INDEX_FILE}`);
 console.log(`输出大小: ${(newHtml.length / 1024).toFixed(1)} KB`);
 console.log(`体积减少: ${((html.length - newHtml.length) / 1024).toFixed(1)} KB (${(((html.length - newHtml.length) / html.length) * 100).toFixed(1)}%)`);
 console.log(`Babel CDN: 已移除`);
